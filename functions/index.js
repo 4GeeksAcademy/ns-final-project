@@ -6,7 +6,7 @@ const { initializeApp } = require('firebase-admin/app');
 const { getFirestore } = require('firebase-admin/firestore');
 const { getAuth } = require('firebase-admin/auth');
 
-const admin = initializeApp({ projectId: 'geeks-firebase-72e6d' });
+const admin = initializeApp({ projectId: 'fourgeeks-final' });
 const auth = getAuth(admin);
 const firestore = getFirestore(admin);
 
@@ -33,7 +33,7 @@ exports.getUsers = onRequest((req, res) => {
 exports.signUpOrSigninUser = onRequest((req, res) => {
   cors(req, res, async () => {
 
-    const { email } = req.body;
+    const { email, name } = req.body;
 
     console.log(email);
     
@@ -59,8 +59,10 @@ exports.signUpOrSigninUser = onRequest((req, res) => {
         if (!data) {
   
           console.log('registering user...')
+					console.log(name)
           const user = {
             email,
+						name,
             created_at: new Date().toISOString()
           }
   
@@ -77,7 +79,7 @@ exports.signUpOrSigninUser = onRequest((req, res) => {
       }
       catch (e) {
   
-        response.msg = "Error";
+        response.msg = e.message;
         response.status = 500;
       }
     }

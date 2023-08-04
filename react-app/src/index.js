@@ -3,36 +3,74 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Switch as Routes, Link } from "react-router-dom";
+
+// Pages
+import { Menu } from './views/menu';
+import { Pdp } from './views/pdp';
+import { About } from "./views/about";
+import { Home } from "./views/home";
+import { Account } from "./views/account";
+
+// Common
+import { Nav } from "./nav";
+import { Footer } from "./footer";
 
 import { initializeApp } from "firebase/app";
-import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 import ContextProvider from "./Context";
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB1UJSTIdYzKDgayNSRWMlVc_6i6J04Krg",
-  authDomain: "geeks-firebase-72e6d.firebaseapp.com",
-  projectId: "geeks-firebase-72e6d",
-  storageBucket: "geeks-firebase-72e6d.appspot.com",
-  messagingSenderId: "161315790364",
-  appId: "1:161315790364:web:08d050f50f2f75a97149d9",
-  measurementId: "G-ZCNEK8BRJL",
+  apiKey: "AIzaSyCBNCn9NDfX63F1YikmA3IXIACmwy1AevA",
+  authDomain: "fourgeeks-final.firebaseapp.com",
+  projectId: "fourgeeks-final",
+  storageBucket: "fourgeeks-final.appspot.com",
+  messagingSenderId: "778547548624",
+  appId: "1:778547548624:web:5420248dc67a10279c29d5",
+  measurementId: "G-LNKQ02ZQ0T"
 };
 
 const app = initializeApp(firebaseConfig);
-const functions = getFunctions(app);
 export const auth = getAuth(app);
 export const firestore = getFirestore(app);
-connectFunctionsEmulator(functions, "127.0.0.1", 5001);
 connectAuthEmulator(auth, process.env.REACT_APP_FIREBASE_AUTH_HOST);
 connectFirestoreEmulator(firestore, process.env.REACT_APP_FIREBASE_FIRESTORE_HOST);
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ContextProvider>
-    <App />
-  </ContextProvider>
+	<>
+		<Nav></Nav>
+		<ContextProvider>
+				<BrowserRouter>
+					<Routes>
+						<Route exact path="/"><Home /></Route>
+						<Route exact path="/menu"><Menu /></Route>
+						<Route exact path="/pdp"><Pdp /></Route>
+						<Route exact path="/about"><About /></Route>
+						<Route exact path="/account"><Account /></Route>
+
+						<Route render={() => 
+						<>
+							<Container maxWidth="lg">
+								<Grid container>
+									<Grid item xs={12} center>
+										<div className="nothing">
+											<h1 center>Not found!</h1>
+										</div>
+									</Grid>
+								</Grid>
+							</Container>
+						</>
+						} />
+					</Routes>
+				</BrowserRouter>
+		</ContextProvider>
+		<Footer></Footer>
+	</>
 );
 
 // If you want to start measuring performance in your app, pass a function

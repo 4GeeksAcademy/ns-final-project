@@ -1,9 +1,13 @@
-import { useEffect, useContext } from 'react';
-import logo from './logo.svg';
+import { useEffect } from 'react';
+// import logo from './logo.svg';
 import './App.css';
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from './index';
-import { Context } from './Context'
+import { Context } from './Context';
+import { BrowserRouter, Route, Switch as Routes, Link } from "react-router-dom";
+import { Home } from "./views/home.js";
+import { Menu } from "./views/menu.js";
+import { Pdp } from "./views/pdp.js";
 
 const provider = new GoogleAuthProvider();
 
@@ -13,13 +17,13 @@ const provider = new GoogleAuthProvider();
 
 function App() {
 
-  const { setUser } = useContext(Context);
+  // const { setUser } = useContext(Context);
 
   useEffect(() => {
 
     (async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/geeks-firebase-72e6d/us-central1/helloWorld`);
+        const res = await fetch(`${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/fourgeeks-final/us-central1/helloWorld`);
         const text = await res.text();
 
         console.log(text);
@@ -43,9 +47,9 @@ function App() {
             console.log('token: ', token);
             console.log('user: ', user);
 
-            const res = await fetch(`${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/geeks-firebase-72e6d/us-central1/signUpOrSigninUser`, {
+            const res = await fetch(`${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/fourgeeks-final/us-central1/signUpOrSigninUser`, {
               method: 'post',
-              body: JSON.stringify({ email: user.email }),
+              body: JSON.stringify({ email: user.email, name: user.displayName }),
               headers: {
                 'Content-Type': 'application/json'
               }

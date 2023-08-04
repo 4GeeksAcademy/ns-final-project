@@ -23,7 +23,7 @@
       "port": 5057
     },
     "ui": {
-      "enabled": false
+      "enabled": true
     },
     "singleProjectMode": true
   }
