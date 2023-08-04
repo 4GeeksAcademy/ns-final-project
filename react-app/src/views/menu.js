@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import rasberry from "../img/rasberry.png";
 import watermelon from "../img/watermelon.png";
 import blueberry from "../img/blueberry.png";
-import "../menu.css";
+import "../menu.scss";
 
 // Card Component
 import Card from '@mui/material/Card';

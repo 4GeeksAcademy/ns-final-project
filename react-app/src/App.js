@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from './index';
 import { Context } from './Context';

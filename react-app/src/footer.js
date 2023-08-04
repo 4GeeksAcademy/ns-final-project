@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import "./footer.css";
+import "./footer.scss";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 

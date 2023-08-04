@@ -9,24 +9,26 @@ body {
 	min-height: 100vh;
 }
 
+// common
 a, .link {
 	color: #388440;
 	text-decoration: none;
 	cursor: pointer;
-}
-a:hover, .link:hover {
-	text-decoration: underline;
-}
-.nothing {
-	padding: 100px 0;
-}
-.nothing h1 {
-	text-align: center;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 .flex {
 	display: flex;
 	align-items: center;
 }
+
 .MuiGrid-container, .MuiGrid-item {
 	align-items: center;
+}
+.nothing {
+	padding: 100px 0;
+	h1 {
+		text-align: center;
+	}
 }

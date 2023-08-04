@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import bear from "./img/bear.png";
-import "./nav.css";
+import "./nav.scss";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
