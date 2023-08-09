@@ -1,5 +1,7 @@
+@import "./index.scss";
+
 footer {
-	background: white;
+	background: $white;
 	padding: 20px 0;
 }
 li {
@@ -10,6 +12,6 @@ li {
 	display: flex;
 	justify-content: flex-end;
 	a:hover {
-		color: black;
+		color: $black;
 	}
 }

@@ -1,12 +1,14 @@
+@import "./index.scss";
+
 .logo {
 	width: 34px;
 }
 nav {
-	background: white;
+	background: $white;
 	padding: 20px 0;
 }
 .logoCont {
-	color: black;
+	color: $black;
 	&:hover {
 		text-decoration: none;
 	}

@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch as Routes, Link } from "react-router-dom";
 // Pages
 import { Menu } from './views/menu';
 import { Pdp } from './views/pdp';
+import { Cart } from './views/cart';
 import { About } from "./views/about";
 import { Home } from "./views/home";
 import { Account } from "./views/account";
@@ -50,6 +51,7 @@ root.render(
 						<Route exact path="/"><Home /></Route>
 						<Route exact path="/menu"><Menu /></Route>
 						<Route exact path="/pdp"><Pdp /></Route>
+						<Route exact path="/cart"><Cart /></Route>
 						<Route exact path="/about"><About /></Route>
 						<Route exact path="/account"><Account /></Route>
 

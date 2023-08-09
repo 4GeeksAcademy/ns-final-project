@@ -4,43 +4,31 @@ import { auth } from './index'
 
 export const menuContext = createContext();
 
-export const watermelonBase = {
-	name: 'Watermelon',
-	sugar: 1,
-	size: 'large',
-	cost: '5.5',
+export const sweetMamboBase = {
+	name: 'Sweet Mambo',
+	id: 'sweetMambo',
+	juices: ['cucumber', 'ginger', 'lime'],
 	img: '../img/watermelon.png',
 	calories: '380',
-	protein: {
-		type: 'whey',
-		amt: 2
-	}
+	cost: '5.50'
 }
-export const blueberryBase = {
-	name: 'Blueberry',
-	sugar: 1,
-	size: 'large',
-	img: '../img/blueberry.png',
+export const beachDayBase = {
+	name: 'Beach Day',
+	id: 'beachDay',
+	juices: ['watermelon', 'pineapple', 'ginger', 'lime'],
+	img: 'img/blueberry.png',
 	calories: '410',
-	cost: '4.5',
-	protein: {
-		type: 'whey',
-		amt: 2
-	}
+	cost: '4.50'
 }
-export const rasberryBase = {
-	name: 'Rasberry',
-	sugar: 1,
+export const immunityBase = {
+	name: 'Immunity',
+	id: 'immunity',
+	juices: ['carrot', 'apple', 'lemon', 'ginger'],
 	img: '../img/rasberry.png',
 	calories: '395',
-	size: 'large',
-	cost: '5.0',
-	protein: {
-		type: 'whey',
-		amt: 2
-	}
+	cost: '5.00'
 }
-export const bases = [watermelonBase, blueberryBase, rasberryBase];
+export const bases = [sweetMamboBase, beachDayBase, immunityBase];
 
 export default function ContextProvider(props) {
 

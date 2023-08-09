@@ -1,3 +1,9 @@
+// Colors
+$white: #fff;
+$black: #000;
+$green: #388440;
+$green-lt: #e9f2ea;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,13 +11,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-	background: #e9f2ea;
+	background: $green-lt;
 	min-height: 100vh;
+	font-size: 16px;
 }
 
 // common
 a, .link {
-	color: #388440;
+	color: $green;
 	text-decoration: none;
 	cursor: pointer;
 	&:hover {
@@ -30,5 +37,24 @@ a, .link {
 	padding: 100px 0;
 	h1 {
 		text-align: center;
+	}
+}
+.fw {
+	width: 100%;
+}
+.tac {
+	text-align: center;
+}
+button {
+	width: 100%;
+	background: $green;
+	color: $white;
+	padding: 15px;
+	outline: none;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	&:hover {
+		background-color: #25692c;
 	}
 }

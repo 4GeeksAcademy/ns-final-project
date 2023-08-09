@@ -1,7 +1,42 @@
+@import "./index.scss";
 
-.productShot {
-	margin-bottom: 40px;
+.product {
+	color: $black;
+	background-color: rgba(255,255,255,.7);
+	padding: 20px;
+	margin: 50px 0;
+	display: block;
+	box-shadow: none;
+	transition: all .2s ease-in;
+	position: relative;
+	cursor: pointer;
+	img {
+		width: 50%;
+		transform: scale(1);
+		transition: transform .2s ease-out;
+	}
 	&:hover {
 		text-decoration: none;
+		background-color: rgba(255,255,255,1);
+		box-shadow: 1px 6px 10px -3px rgba(0,0,0,0.1);
+		transition: all .2s ease-in;
+		img {
+			transform: scale(1.07);
+			transition: transform .2s ease-in;
+		}
+	}
+	.gf {
+		color: $green;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+		font-size: 12px;
+		&-hidden {
+			display: none;
+		}
+		.gf-lg {
+			font-size: 18px;
+			font-weight: 700;
+		}
 	}
 }

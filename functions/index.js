@@ -28,7 +28,71 @@ exports.getUsers = onRequest((req, res) => {
 
     res.send(users);
   })
-})
+});
+
+exports.getBases = onRequest((req, res) => {
+  cors(req, res, async () => {
+
+		const response = {
+			status: 200,
+			data: {},
+			msg: 'Successfully retrieved bases'
+		};
+
+		try {
+
+			const snapshot = await firestore.collection('Juices').get();
+
+			const bases = [];
+
+			snapshot.forEach((snap) => {
+				
+				const data = snap.data();
+				bases.push(data);
+			});
+
+			response.data = bases;
+		}
+		catch (e) {
+			response.status = 500;
+			response.msg = e.message;
+		}
+
+    res.status(response.status).send(response);
+  })
+});
+
+exports.getConstants = onRequest((req, res) => {
+  cors(req, res, async () => {
+
+		const response = {
+			status: 200,
+			data: {},
+			msg: 'Successfully retrieved constants'
+		};
+
+		try {
+
+			const snapshot = await firestore.collection('Constants').get();
+
+			const constants = [];
+
+			snapshot.forEach((snap) => {
+				
+				const data = snap.data();
+				constants.push(data);
+			});
+			
+			response.data = constants;
+		}
+		catch (e) {
+			response.status = 500;
+			response.msg = e.message;
+		}
+
+    res.status(response.status).send(response);
+  })
+});
 
 exports.signUpOrSigninUser = onRequest((req, res) => {
   cors(req, res, async () => {
