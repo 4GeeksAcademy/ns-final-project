@@ -71,14 +71,11 @@ export const Footer = () => {
           <DialogContentText id="scroll-dialog-description" ref={descriptionElementRef}
             tabIndex={-1}
           >
-            {[...new Array(50)]
-              .map(
-                () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-              )
-              .join('\n')}
+					<i>Last Updated: August 2023</i><br/><br/>
+
+					These Terms apply to your access to, and use of, all or part of any website or mobile application of Apetitoso Corporation. These Terms do not alter in any way the terms or conditions of any other agreement you may have with Apetitoso for products, services or otherwise.<br/><br/>
+
+					In the event there is any conflict or inconsistency between these Terms and any other terms of use that appear on the Sites, these Terms will govern. However, if you navigate away from the sites to a third-party site, you may be subject to alternative terms and conditions of use, as may be specified on such site, which will govern your use of that site.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

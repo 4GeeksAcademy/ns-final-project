@@ -29,7 +29,7 @@ export const Menu = () => {
 			baseName = e.target.parentElement.classList[0];
 		}
 		const base = bases.find((base) => {
-			console.log(base.id, baseName, e.target, base.GF);
+			console.log(base.id, baseName, e.target, base.GF, base.price.md);
 			return base.id === baseName;
 		});
 		setCurrentSelectedBase(base);
@@ -65,7 +65,7 @@ export const Menu = () => {
 									<img src={base.img} alt="Juice" />
 									<h3>{base.name}</h3>
 									<p>{base.calories} Calories</p>
-									<p>${base.price.toFixed(2)}</p>
+									<p>${base.price.md.toFixed(2)}</p>
 								</div>
 								{/* <div className={base.name} onClick={onSelectBase}>
 									<Card sx={{ maxWidth: 345 }}>

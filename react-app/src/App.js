@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-// import logo from './logo.svg';
 import './App.scss';
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from './index';
@@ -25,9 +24,7 @@ function App() {
       try {
         const res = await fetch(`${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/fourgeeks-final/us-central1/helloWorld`);
         const text = await res.text();
-
         console.log(text);
-
       }
       catch (e) {
         console.error(e);
@@ -39,9 +36,11 @@ function App() {
       <button onClick={(e) => {
         signInWithPopup(auth, provider)
           .then(async (result) => {
+
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
+						
             // The signed-in user info.
             const user = result.user;
             console.log('token: ', token);
@@ -77,7 +76,7 @@ function App() {
         //   .catch((err) => console.error(err))
       }}>Sign in</button>
 
-      <button onClick={() => auth.signOut()}>Sign out</button>
+      {/* <button onClick={() => auth.signOut()}>Sign out</button> */}
     </div>
   );
 }

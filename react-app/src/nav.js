@@ -1,11 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+// import { Link } from "react-router-dom";
 import bear from "./img/bear.png";
 import "./nav.scss";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import { menuContext } from "./Context";
 
 export const Nav = () => {
+
+	// const { user } = useContext(menuContext);
+
 	return (
 		<>
 			<nav>
@@ -19,7 +23,8 @@ export const Nav = () => {
 								<li><a href="menu">Menu</a></li>
 								<li><a href="about">About</a></li>
 								{/* <li>Rewards</li> */}
-								<li><a href="account">Hi, Nick</a></li>
+								<li><a href="account">Hi, </a></li>
+								{/* { user.displayName } */}
 							</ul>
 						</Grid>
 					</Grid>

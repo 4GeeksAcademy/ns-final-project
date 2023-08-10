@@ -4,31 +4,31 @@ import { auth } from './index'
 
 export const menuContext = createContext();
 
-export const sweetMamboBase = {
-	name: 'Sweet Mambo',
-	id: 'sweetMambo',
-	juices: ['cucumber', 'ginger', 'lime'],
-	img: '../img/watermelon.png',
-	calories: '380',
-	cost: '5.50'
-}
-export const beachDayBase = {
-	name: 'Beach Day',
-	id: 'beachDay',
-	juices: ['watermelon', 'pineapple', 'ginger', 'lime'],
-	img: 'img/blueberry.png',
-	calories: '410',
-	cost: '4.50'
-}
-export const immunityBase = {
-	name: 'Immunity',
-	id: 'immunity',
-	juices: ['carrot', 'apple', 'lemon', 'ginger'],
-	img: '../img/rasberry.png',
-	calories: '395',
-	cost: '5.00'
-}
-export const bases = [sweetMamboBase, beachDayBase, immunityBase];
+// export const sweetMamboBase = {
+// 	name: 'Sweet Mambo',
+// 	id: 'sweetMambo',
+// 	juices: ['cucumber', 'ginger', 'lime'],
+// 	img: '../img/watermelon.png',
+// 	calories: '380',
+// 	cost: '5.50'
+// }
+// export const beachDayBase = {
+// 	name: 'Beach Day',
+// 	id: 'beachDay',
+// 	juices: ['watermelon', 'pineapple', 'ginger', 'lime'],
+// 	img: 'img/blueberry.png',
+// 	calories: '410',
+// 	cost: '4.50'
+// }
+// export const immunityBase = {
+// 	name: 'Immunity',
+// 	id: 'immunity',
+// 	juices: ['carrot', 'apple', 'lemon', 'ginger'],
+// 	img: '../img/rasberry.png',
+// 	calories: '395',
+// 	cost: '5.00'
+// }
+// export const bases = [sweetMamboBase, beachDayBase, immunityBase];
 
 export default function ContextProvider(props) {
 
@@ -68,7 +68,7 @@ export default function ContextProvider(props) {
     }, []);
 
     return (
-        <menuContext.Provider value={{ user, currentSelectedBase, setCurrentSelectedBase }}>
+        <menuContext.Provider value={{ user, setUser, currentSelectedBase, setCurrentSelectedBase }}>
             {props.children}
         </menuContext.Provider>
     )

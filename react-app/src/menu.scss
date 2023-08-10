@@ -40,3 +40,33 @@
 		}
 	}
 }
+.styledBtn {
+	border: solid 1px #c4c4c4;
+	border-radius: 4px;
+	color: #464646;
+	padding: 6px 10px;
+	margin-bottom: 20px;
+	display: inline-block;
+	cursor: pointer;
+	&:hover {
+		background: rgba(255,255,255,0.5);
+	}
+}
+.productShotCont {
+	position: relative;
+	&.protein:after {
+		content: '';
+		position: absolute;
+		top: 210px;
+    left: 166px;
+		width: 242px;
+		height: 61px;
+		background-image: url(../public/protein.png);
+	}
+	&.sm {
+		transform: scale(.85);
+	}
+	&.lg {
+		transform: scale(1.15);
+	}
+}

@@ -12,6 +12,8 @@ import { Cart } from './views/cart';
 import { About } from "./views/about";
 import { Home } from "./views/home";
 import { Account } from "./views/account";
+import { Confirmation } from "./views/confirmation";
+import { Checkout } from "./views/checkout";
 
 // Common
 import { Nav } from "./nav";
@@ -45,13 +47,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<>
 		<Nav></Nav>
+		<main>
 		<ContextProvider>
 				<BrowserRouter>
 					<Routes>
-						<Route exact path="/"><Home /></Route>
+						<Route exact path="/"><App /></Route>
+						<Route exact path="/home"><Home /></Route>
 						<Route exact path="/menu"><Menu /></Route>
 						<Route exact path="/pdp"><Pdp /></Route>
 						<Route exact path="/cart"><Cart /></Route>
+						<Route exact path="/checkout"><Checkout /></Route>
+						<Route exact path="/confirmation"><Confirmation /></Route>
 						<Route exact path="/about"><About /></Route>
 						<Route exact path="/account"><Account /></Route>
 
@@ -71,6 +77,7 @@ root.render(
 					</Routes>
 				</BrowserRouter>
 		</ContextProvider>
+		</main>
 		<Footer></Footer>
 	</>
 );
