@@ -8,7 +8,7 @@ import { menuContext } from "./Context";
 
 export const Nav = () => {
 
-	// const { user } = useContext(menuContext);
+	const { user } = useContext(menuContext);
 
 	return (
 		<>
@@ -23,8 +23,8 @@ export const Nav = () => {
 								<li><a href="menu">Menu</a></li>
 								<li><a href="about">About</a></li>
 								{/* <li>Rewards</li> */}
-								<li><a href="account">Hi, </a></li>
-								{/* { user.displayName } */}
+								<li><a href="account">Hi, { user.name }</a></li>
+								
 							</ul>
 						</Grid>
 					</Grid>

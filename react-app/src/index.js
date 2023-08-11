@@ -46,9 +46,9 @@ connectFirestoreEmulator(firestore, process.env.REACT_APP_FIREBASE_FIRESTORE_HOS
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<>
-		<Nav></Nav>
 		<main>
 		<ContextProvider>
+				<Nav></Nav>
 				<BrowserRouter>
 					<Routes>
 						<Route exact path="/"><App /></Route>

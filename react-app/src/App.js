@@ -18,19 +18,7 @@ function App() {
 
   // const { setUser } = useContext(Context);
 
-  useEffect(() => {
 
-    (async () => {
-      try {
-        const res = await fetch(`${process.env.REACT_APP_FIREBASE_FUNCTIONS_HOST}/fourgeeks-final/us-central1/helloWorld`);
-        const text = await res.text();
-        console.log(text);
-      }
-      catch (e) {
-        console.error(e);
-      }
-    })();
-  }, []);
   return (
     <div className="App">
       <button onClick={(e) => {
@@ -40,7 +28,7 @@ function App() {
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-						
+
             // The signed-in user info.
             const user = result.user;
             console.log('token: ', token);
@@ -55,21 +43,9 @@ function App() {
             });
 
             const dbUser = await res.json();
-
-            console.log('data: ', dbUser);
-            // setUser(dbUser.data);
-            // IdP data available using getAdditionalUserInfo(result)
-            // ...
           }).catch((error) => {
             console.error(error);
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
+     
           });
         // createUserWithEmailAndPassword(auth, "elvishernandeztheone@gmail.com", "password")
         //   .then((res) => console.log(res))

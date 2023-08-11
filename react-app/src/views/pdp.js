@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { menuContext } from "../Context";
-import { Redirect } from 'react-router-dom';
-import { useNavigate } from "react-router";
+import { Redirect, useHistory } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -29,6 +28,7 @@ export const Pdp = (props) => {
 
 	const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
+	const history = useHistory();
 
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
@@ -107,7 +107,7 @@ export const Pdp = (props) => {
 
 	const goToCheckout = (e) => {
 		e.preventDefault();
-		// navigate('./cart');
+		history.push('/cart');
 	}
 
 	const fetchConstants = async () => {
@@ -175,14 +175,14 @@ export const Pdp = (props) => {
 				<Grid container spacing={2}>
 					<Grid item xs={6} className="tac">
 						<div className="flex">
-							<a href="/menu"><ArrowBackIosIcon className="back" /></a>
-							<h1>{currentSelectedBase.name}</h1>
+							<a href="/menu" className="backTo"><ArrowBackIosIcon className="back" /> Back to menu</a>
 						</div>
 						{/* <img src={'./img/'+ currentSelectedBase.name + '-pdp.png'} alt="Juice" className="productShot" /> */}
 						<div className="productShotCont"><img src={currentSelectedBase.imgLrg} alt="Juice" className="productShot" /></div>
 					</Grid>
 
 					<Grid item xs={4}>
+						<h1>{currentSelectedBase.name}</h1>
 						<form onSubmit={goToCheckout}>
 							<h2 id="drinkPrice">$<span id="drinkVal">{currentSelectedBase.price.md.toFixed(2)}</span></h2>
 							<div>
