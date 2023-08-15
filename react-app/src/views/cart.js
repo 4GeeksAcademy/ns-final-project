@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { menuContext } from "../Context";
-import { Redirect, useNavigate } from 'react-router-dom'
+import { Redirect, useNavigate, useHistory } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -9,6 +9,12 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 export const Cart = (props) => {
 
 	const { currentSelectedBase } = useContext(menuContext);
+
+	const history = useHistory();
+	const goToCheckout = (e) => {
+		e.preventDefault();
+		history.push('/confirmation');
+	}
 	
 	return (
 		<div>
@@ -21,6 +27,11 @@ export const Cart = (props) => {
 						</div>
 						<img src={currentSelectedBase.imgLrg} alt="Juice" className="productShot" />
 					</Grid>
+
+					<form onSubmit={goToCheckout}>
+						<h2 id="drinkPrice">$<span id="drinkVal">{currentSelectedBase.price.md.toFixed(2)}</span></h2>
+						<button type="submit">Purchase</button>
+					</form>
 
 				</Grid>
 			</Container>

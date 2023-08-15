@@ -4,6 +4,10 @@ import { menuContext } from "../Context.js";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import "../menu.scss";
+import loader from "../img/animated-fruit.gif";
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+
 
 // Card Component
 import Card from '@mui/material/Card';
@@ -43,6 +47,7 @@ export const Menu = () => {
 
 			const res = await fetch('http://127.0.0.1:5001/fourgeeks-final/us-central1/getBases');
 			const data = await res.json();
+			document.querySelector('.loader').classList.add('hidden');
 
 			setBases(data.data);
 
@@ -55,13 +60,20 @@ export const Menu = () => {
 
 	return (
 		<div>
-			<Container maxWidth="lg">
-				<Grid container spacing={2}>
+			<Container maxWidth="lg" sx={{mb: 2, mt: 2}}>
+				<img src={loader} alt="loader" className="loader" />
+				<Grid container spacing={2} xs>
 					{bases.map((base) => 
-						<Grid item xs={4}>
+						<Grid item xs={6} sm={4} md={3}>
 							<Link to="/pdp" className="product tac">
 								<div className={base.id} onClick={onSelectBase}>
-									<div className={(base.GF === false) ? "gf-hidden" : "gf"}><span className="gf-lg">GF</span><br/>Gluten Free</div>
+									<div className={(base.GF === false) ? "gf-hidden" : "gf"}>
+									<Tooltip title="Gluten-Free">
+										<IconButton>
+											<span className="gf-lg">GF</span>
+										</IconButton>
+									</Tooltip>
+									</div>
 									<img src={base.img} alt="Juice" />
 									<h3>{base.name}</h3>
 									<p>{base.calories} Calories</p>

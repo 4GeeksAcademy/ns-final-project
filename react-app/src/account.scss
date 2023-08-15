@@ -1,0 +1,46 @@
+@import "./vars.scss";
+
+.tableContent {
+	ul {
+		padding: 0;
+		li {
+			width: 100%;
+			display: block;
+			label {
+				display: inline-block;
+				width: 56px;
+			}
+		}
+	}
+}
+.accountTabs {
+	button {
+		align-items: flex-start;
+    padding: 20px 50px;
+		&:hover {
+			background: $gray-lt;
+		}
+		&.Mui-selected {
+			color: $green;
+		}
+	}
+	.MuiTabs-indicator {
+		background: $green;
+	}
+}
+.accountPanel {
+	.Mui-checked {
+		color: $green !important;
+	}
+	.MuiSwitch-track {
+		background-color: $green !important;
+	}
+	.MuiButton-textPrimary {
+		width: auto;
+		display: inline-block;
+	}
+	.cc {
+		display: inline-block;
+    margin-right: 10px;
+	}
+}

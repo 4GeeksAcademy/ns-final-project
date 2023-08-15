@@ -1,9 +1,12 @@
 import React from "react";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 
 export const Confirmation = () => {	
+
+	let { orderId } = useParams();
 
 	return (
 		<div>
@@ -11,7 +14,7 @@ export const Confirmation = () => {
 				<Grid container spacing={2}>
 					<Grid item>
 						<h1>Thank you for your order!</h1>
-						<p>Your order number is 236437.</p>
+						<p>Your order number is { orderId }.</p>
 						<Link to="/menu">Back to menu</Link>
 					</Grid>
 				</Grid>

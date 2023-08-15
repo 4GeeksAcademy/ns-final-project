@@ -55,9 +55,9 @@ root.render(
 						<Route exact path="/home"><Home /></Route>
 						<Route exact path="/menu"><Menu /></Route>
 						<Route exact path="/pdp"><Pdp /></Route>
-						<Route exact path="/cart"><Cart /></Route>
+						{/* <Route exact path="/cart"><Cart /></Route> */}
 						<Route exact path="/checkout"><Checkout /></Route>
-						<Route exact path="/confirmation"><Confirmation /></Route>
+						<Route exact path="/confirmation/:orderId"><Confirmation /></Route>
 						<Route exact path="/about"><About /></Route>
 						<Route exact path="/account"><Account /></Route>
 

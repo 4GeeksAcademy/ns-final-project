@@ -152,3 +152,47 @@ exports.signUpOrSigninUser = onRequest((req, res) => {
     res.status(response.status).send(response);
   });
 });
+
+
+
+
+exports.insertOrder = onRequest((req, res) => {
+  cors(req, res, async () => {
+
+    const { order } = req.body;
+
+    console.log(order);
+    
+    const response = {
+      msg: 'Successful order inserted',
+      data: {},
+      status: 200
+    };
+
+    if (!order) {
+      response.msg = 'No order passed';
+      response.status = 500;
+    }
+
+    if ( response.status === 200) {
+      try {
+				const randomId = await firestore.collection("Orders").doc().id;
+        const res = await firestore.collection("Orders").doc(randomId).set(order);
+
+				response.data = {
+					...order,
+					orderId: randomId
+				}
+
+				console.log(randomId);
+        
+      }
+      catch (e) {
+        response.msg = e.message;
+        response.status = 500;
+      }
+    }
+
+    res.status(response.status).send(response);
+  });
+});

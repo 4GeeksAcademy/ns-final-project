@@ -81,14 +81,18 @@ export const Pdp = (props) => {
   );
 
 	const [constants, setConstants] = useState([]);
+	const { currentSelectedBase, setMyOrder } = useContext(menuContext);
 
 	useEffect(() => {
 		fetchConstants();
+
+		if (currentSelectedBase) {
+			setMyOrder(currentSelectedBase);
+		}
 	}, []);
 
 	const { item } = props;
 
-	const { currentSelectedBase } = useContext(menuContext);
 
 	function custSugar() {
 		//logic
@@ -107,7 +111,7 @@ export const Pdp = (props) => {
 
 	const goToCheckout = (e) => {
 		e.preventDefault();
-		history.push('/cart');
+		history.push('/checkout');
 	}
 
 	const fetchConstants = async () => {
@@ -122,14 +126,16 @@ export const Pdp = (props) => {
 		}
 	}
 
-	const postOrder = async () => {
-		try {
-			const setOrder = await fetch('http://127.0.0.1:5001/fourgeeks-final/us-central1/getConstants', {method:'POST', headers:{'Content-Type': 'application/json'}, body:JSON.stringify({})});
-		}
-		catch (e) {
-			console.error(e);
-		}
-	}
+	// const postOrder = async () => {
+	// 	try {
+	// 		const setOrder = await fetch('http://127.0.0.1:5001/fourgeeks-final/us-central1/getConstants', {method:'POST', headers:{'Content-Type': 'application/json'}, body:JSON.stringify({})});
+	// 	}
+	// 	catch (e) {
+	// 		console.error(e);
+	// 	}
+	// }
+
+
 
 	let drinkPrice = document.getElementById('drinkVal');
 	let imgSize = document.querySelector('.productShotCont');
