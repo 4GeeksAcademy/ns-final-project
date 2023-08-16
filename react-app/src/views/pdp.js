@@ -176,7 +176,7 @@ export const Pdp = (props) => {
 	/>;
 	}
 	return (
-		<div>
+		<main>
 			<Container maxWidth="lg">
 				<Grid container spacing={2}>
 					<Grid item xs={6} className="tac">
@@ -295,6 +295,6 @@ export const Pdp = (props) => {
 					<Button variant="contained" onClick={handleClose}>Save</Button>
         </DialogActions>
       </Dialog>
-		</div>
+		</main>
 	);
 };

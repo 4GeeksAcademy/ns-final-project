@@ -1,23 +1,43 @@
 @import "./vars.scss";
 body {
   margin: 0;
-  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  //   sans-serif;
 	font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-	background: $green-lt;
-	min-height: 100vh;
+	// background: $green-lt;
+	// background: #f9fffa;
 	font-size: 16px;
 }
 main {
-	min-height: calc(100vh - 150px);
+	min-height: calc(100vh - 222px);
+	margin: 114px 0 50px;
 }
+.nothing {
+	padding: 100px 0;
+	h1 {
+		text-align: center;
+	}
+}
+
+// COMMON
 h1, h2, h3, h4 {
 	font-family: 'Handlee', cursive;
+	text-transform: capitalize;
 }
-// common
+ul {
+	padding: 0;
+	margin: 0;
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+}
+textarea {
+	font-family: 'Roboto', sans-serif;
+}
+.capIt {
+	text-transform: capitalize;
+}
 a, .link {
 	color: $green;
 	text-decoration: none;
@@ -30,21 +50,18 @@ a, .link {
 	display: flex;
 	align-items: center;
 }
-
-.MuiGrid-container, .MuiGrid-item {
-	align-items: center;
-}
-.nothing {
-	padding: 100px 0;
-	h1 {
-		text-align: center;
-	}
+.sb {
+	justify-content: space-between;
 }
 .fw {
 	width: 100%;
 }
 .tac {
 	text-align: center;
+}
+.banner {
+	border-radius: 8px;
+	background: $white;
 }
 button {
 	width: 100%;
@@ -73,4 +90,12 @@ button {
 		transition: opacity .6s;
 		z-index: 0;
 	}
+}
+
+//MUI
+.MuiGrid-container, .MuiGrid-item {
+	align-items: center;
+}
+.MuiGrid-root {
+	margin-top: 0 !important;
 }

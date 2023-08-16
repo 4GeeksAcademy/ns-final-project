@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import { auth } from "../index";
 import { useHistory } from 'react-router-dom';
 import { menuContext } from "../Context";
-import "../account.scss";
+import "../styles/account.scss";
 import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types';
@@ -17,6 +17,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 import Switch from '@mui/material/Switch';
+import { useMediaQuery } from "@mui/material";
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 function TabPanel(props) {
@@ -68,17 +69,18 @@ export const Account = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+	const smallScreen = useMediaQuery("(max-width: 899px)");
 
 	return (
-		<div>
+		<main className="account">
 			<Container maxWidth="lg">
 				<Grid container spacing={2}>
-					<Grid item xs={12} sx={{ mt: 2}}>
-						<Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex' }} >
+					<Grid>
+						<Box className="accountBox" sx={{ flexGrow: 1, display: 'flex' }} >
 							<div className="accountTabs">
 								<Tabs
-									orientation="vertical"
-									// variant="scrollable"
+									orientation={smallScreen ? "horizontal" : "vertical"} 
+									variant="scrollable"
 									value={value}
 									onChange={handleChange}
 									aria-label="My Account"
@@ -137,6 +139,6 @@ export const Account = () => {
 					</Grid>
 				</Grid>
 			</Container>
-		</div>
+		</main>
 	);
 };

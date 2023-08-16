@@ -1,4 +1,4 @@
-import './App.scss';
+import './styles/app.scss';
 import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 // import { auth } from './index';
 // import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';

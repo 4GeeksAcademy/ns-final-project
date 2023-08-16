@@ -1,0 +1,25 @@
+@import "./vars.scss";
+
+footer {
+	background: $green;
+	padding: 15px 0;
+	display: flex;
+	color: $white;
+	.hideSmall {
+		display: none;
+		@media (min-width: $md) {
+			display: inline-block;
+		}
+	}
+	
+	.social {
+		display: flex;
+		justify-content: flex-end;
+		li {
+			margin-left: 10px;
+		}
+	}
+	a, .link {
+		color: $white;
+	}
+}

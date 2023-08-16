@@ -1,0 +1,19 @@
+@import "./vars.scss";
+
+.about {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	.imgCont {
+		padding: 20px 40px 20px 0;
+    text-align: center;
+	}
+	img {
+		width: 60%;
+	}
+	@media (min-width: $md) {
+		img {
+			width: 100%;
+		}
+	}
+}

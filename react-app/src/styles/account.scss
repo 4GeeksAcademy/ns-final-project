@@ -14,9 +14,25 @@
 	}
 }
 .accountTabs {
+	.MuiTabs-root {
+		border-right: none;
+	}
+	.MuiTabs-flexContainer {
+		@media (min-width: $sm) and (max-width: $md) {
+			justify-content: center;
+		}
+	}
 	button {
-		align-items: flex-start;
+		align-items: center;
     padding: 20px 50px;
+		padding: 0;
+		width: auto;
+		margin-right: 15px;
+		@media (min-width: $md) {
+			padding: 20px 50px;
+			margin-right: 0;
+			align-items: flex-start;
+		}
 		&:hover {
 			background: $gray-lt;
 		}
@@ -42,5 +58,18 @@
 	.cc {
 		display: inline-block;
     margin-right: 10px;
+	}
+}
+.accountBox {
+	flex-direction: column !important;
+	@media (min-width: $md) {
+		flex-direction: row !important;
+	}
+}
+.account {
+	.MuiGrid-root {
+		width: 100%;
+    margin-left: 0;
+    justify-content: center;
 	}
 }

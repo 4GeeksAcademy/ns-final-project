@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { menuContext } from "../Context.js";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import "../menu.scss";
+import "../styles/menu.scss";
 import loader from "../img/animated-fruit.gif";
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
@@ -59,11 +59,16 @@ export const Menu = () => {
 	}
 
 	return (
-		<div>
-			<Container maxWidth="lg" sx={{mb: 2, mt: 2}}>
+		<main>
+			<Container maxWidth="lg">
 				<img src={loader} alt="loader" className="loader" />
-				<Grid container spacing={2} xs>
+				<Grid container spacing={2}>
 					{bases.map((base) => 
+					// function fixJuice(str) {
+					// 	return str.split('').join(' ');
+					// }
+					// const str1 = base.juices;	
+					// console.log(fixJuice(str1));
 						<Grid item xs={6} sm={4} md={3}>
 							<Link to="/pdp" className="product tac">
 								<div className={base.id} onClick={onSelectBase}>
@@ -75,9 +80,10 @@ export const Menu = () => {
 									</Tooltip>
 									</div>
 									<img src={base.img} alt="Juice" />
-									<h3>{base.name}</h3>
+									<h2>{base.name}</h2>
 									<p>{base.calories} Calories</p>
 									<p>${base.price.md.toFixed(2)}</p>
+									<p className="capIt">{base.juices.join(", ")}</p>
 								</div>
 								{/* <div className={base.name} onClick={onSelectBase}>
 									<Card sx={{ maxWidth: 345 }}>
@@ -99,6 +105,6 @@ export const Menu = () => {
 					)}
 				</Grid>
 			</Container>
-		</div>
+		</main>
 	);
 };

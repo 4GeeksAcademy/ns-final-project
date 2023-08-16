@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 // import { Link } from "react-router-dom";
 import bear from "./img/bear.png";
-import "./nav.scss";
+import "./styles/nav.scss";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { menuContext } from "./Context";
@@ -18,20 +18,21 @@ export const Nav = () => {
 		<>
 			<nav>
 				<Container maxWidth="lg" pt={3}>
-					<Grid container>
-						<Grid item xs={6}>
-						<a href="/" className="logoCont"><h1><img src={bear} className="logo" alt="Apetitoso" /> Apetitoso</h1></a>
+					<Grid container style={{ justifyContent: 'space-between'}}>
+						<Grid item>
+						<a href="/" className="logoCont"><h1><img src={bear} className="logo" alt="Apetitoso" /> <span>Apetitoso</span></h1></a>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item>
 							<ul>
-								<li><a href="menu">Menu</a></li>
-								<li><a href="about">About</a></li>
+								<li><a href="/menu">Menu</a></li>
+								<li><a href="/about">About</a></li>
 								{/* <li>Rewards</li> */}
 								{/* <li><a href="account">Hi, { user.name }</a></li> */}
 								<li>{ (user.name) ? (
-									<a href="account">Hi, {user.name} </a>
+									<a href="/account">Hi, {user.name} </a>
 								) : 
-									<button onClick={(e) => {
+									<a href="/" onClick={(e) => {
+										e.preventDefault();
 										signInWithPopup(auth, provider)
 											.then(async (result) => {
 
@@ -57,7 +58,7 @@ export const Nav = () => {
 												console.error(error);
 								
 											});
-									}}>Sign in</button>
+									}}>Sign in</a>
 								}
 								</li>
 								

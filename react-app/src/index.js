@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.scss";
+import "./styles/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Switch as Routes, Link } from "react-router-dom";
@@ -46,38 +46,34 @@ connectFirestoreEmulator(firestore, process.env.REACT_APP_FIREBASE_FIRESTORE_HOS
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<>
-		<main>
 		<ContextProvider>
-				<Nav></Nav>
-				<BrowserRouter>
-					<Routes>
-						<Route exact path="/"><App /></Route>
-						<Route exact path="/home"><Home /></Route>
-						<Route exact path="/menu"><Menu /></Route>
-						<Route exact path="/pdp"><Pdp /></Route>
-						{/* <Route exact path="/cart"><Cart /></Route> */}
-						<Route exact path="/checkout"><Checkout /></Route>
-						<Route exact path="/confirmation/:orderId"><Confirmation /></Route>
-						<Route exact path="/about"><About /></Route>
-						<Route exact path="/account"><Account /></Route>
+			<Nav></Nav>
+			<BrowserRouter>
+				<Routes>
+					<Route exact path="/app"><App /></Route>
+					<Route exact path="/"><Home /></Route>
+					<Route exact path="/menu"><Menu /></Route>
+					<Route exact path="/pdp"><Pdp /></Route>
+					{/* <Route exact path="/cart"><Cart /></Route> */}
+					<Route exact path="/checkout"><Checkout /></Route>
+					<Route exact path="/confirmation/:orderId"><Confirmation /></Route>
+					<Route exact path="/about"><About /></Route>
+					<Route exact path="/account"><Account /></Route>
 
-						<Route render={() => 
-						<>
-							<Container maxWidth="lg">
-								<Grid container>
-									<Grid item xs={12} center>
-										<div className="nothing">
-											<h1 center>Not found!</h1>
-										</div>
-									</Grid>
+					<Route render={() => 
+						<Container maxWidth="lg">
+							<Grid container>
+								<Grid item xs={12} center>
+									<div className="nothing">
+										<h1 center>Not found!</h1>
+									</div>
 								</Grid>
-							</Container>
-						</>
-						} />
-					</Routes>
-				</BrowserRouter>
+							</Grid>
+						</Container>
+					} />
+				</Routes>
+			</BrowserRouter>
 		</ContextProvider>
-		</main>
 		<Footer></Footer>
 	</>
 );

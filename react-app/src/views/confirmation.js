@@ -9,7 +9,7 @@ export const Confirmation = () => {
 	let { orderId } = useParams();
 
 	return (
-		<div>
+		<main>
 			<Container maxWidth="lg">
 				<Grid container spacing={2}>
 					<Grid item>
@@ -19,6 +19,6 @@ export const Confirmation = () => {
 					</Grid>
 				</Grid>
 			</Container>
-		</div>
+		</main>
 	);
 };

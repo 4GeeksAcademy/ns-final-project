@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import "./footer.scss";
+import "./styles/footer.scss";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
@@ -40,20 +40,20 @@ export const Footer = () => {
 
 	return (
 		<footer>
-			<Container maxWidth="lg">
-				<Grid container>
-					<Grid item xs={6}>
-						&copy; 2023 All rights reserved. &nbsp;
-						<span onClick={handleClickOpen('paper')} className="link">Terms &amp; Conditions</span>
+			<Container>
+				<Grid container className="sb">
+					<Grid item>
+						&copy; 2023 Apetitoso. <span className="hideSmall">All rights reserved. &nbsp;</span>
+						<span onClick={handleClickOpen('paper')} className="link">Terms</span>
 						{/* <Button >Terms &amp; Conditions</Button> */}
 					</Grid>
 
-					<Grid item xs={6} className="social">
-						Connect with us: 
+					<Grid item className="social">
+						<div className="hideSmall">Connect with us: </div>
 						<ul>
-							<li><a href="http://google.com"><FacebookIcon></FacebookIcon></a></li>
-							<li><a href="http://google.com"><TwitterIcon></TwitterIcon></a></li>
-							<li><a href="http://google.com"><InstagramIcon></InstagramIcon></a></li>
+							<li><a href="http://facebook.com"><FacebookIcon></FacebookIcon></a></li>
+							<li><a href="http://twitter.com"><TwitterIcon></TwitterIcon></a></li>
+							<li><a href="http://instagram.com"><InstagramIcon></InstagramIcon></a></li>
 						</ul>
 					</Grid>
 				</Grid>

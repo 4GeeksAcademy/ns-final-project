@@ -62,7 +62,7 @@
     left: 166px;
 		width: 242px;
 		height: 61px;
-		background-image: url(../public/protein.png);
+		background-image: url(../../public/protein.png);
 	}
 	&.sm {
 		transform: scale(.85);
@@ -74,5 +74,4 @@
 .backTo {
 	display: flex;
 	align-items: center;
-	margin-top: 30px;
 }
