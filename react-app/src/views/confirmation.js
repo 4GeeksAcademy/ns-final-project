@@ -14,7 +14,8 @@ export const Confirmation = () => {
 				<Grid container spacing={2}>
 					<Grid item>
 						<h1>Thank you for your order!</h1>
-						<p>Your order number is { orderId }.</p>
+						{/* <img src={ orderImg } alt="Juice" /> */}
+						<p>Your order number is <strong>{ orderId }</strong>.</p>
 						<Link to="/menu">Back to menu</Link>
 					</Grid>
 				</Grid>

@@ -47,8 +47,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<>
 		<ContextProvider>
-			<Nav></Nav>
 			<BrowserRouter>
+			<Nav></Nav>
 				<Routes>
 					<Route exact path="/app"><App /></Route>
 					<Route exact path="/"><Home /></Route>

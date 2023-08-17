@@ -87,7 +87,9 @@ export const Pdp = (props) => {
 		fetchConstants();
 
 		if (currentSelectedBase) {
-			setMyOrder(currentSelectedBase);
+			setMyOrder((prevState) => {
+				return [...prevState, currentSelectedBase]
+			});
 		}
 	}, []);
 
@@ -178,103 +180,103 @@ export const Pdp = (props) => {
 	return (
 		<main>
 			<Container maxWidth="lg">
-				<Grid container spacing={2}>
-					<Grid item xs={6} className="tac">
-						<div className="flex">
-							<a href="/menu" className="backTo"><ArrowBackIosIcon className="back" /> Back to menu</a>
-						</div>
-						{/* <img src={'./img/'+ currentSelectedBase.name + '-pdp.png'} alt="Juice" className="productShot" /> */}
-						<div className="productShotCont"><img src={currentSelectedBase.imgLrg} alt="Juice" className="productShot" /></div>
-					</Grid>
+				<a href="/menu" className="backTo"><ArrowBackIosIcon className="back" /> Back to menu</a>
+				<Grid container spacing={2} style={{background: currentSelectedBase.hex, borderRadius: '6px'}}>
+					{/* <div className="insidePattern"> */}
+						<Grid item sm={6} className="tac" style={{width: '100%'}}>
+							{/* <img src={'./img/'+ currentSelectedBase.name + '-pdp.png'} alt="Juice" className="productShot" /> */}
+							<div className="productShotCont"><img src={currentSelectedBase.imgLrg} alt="Juice" className="productShot" /></div>
+						</Grid>
 
-					<Grid item xs={4}>
-						<h1>{currentSelectedBase.name}</h1>
-						<form onSubmit={goToCheckout}>
-							<h2 id="drinkPrice">$<span id="drinkVal">{currentSelectedBase.price.md.toFixed(2)}</span></h2>
-							<div>
-								<span onClick={handleClickOpen('paper')} className="styledBtn">Special Instructions</span>
-								{/* <FormControl fullWidth sx={{mb: 2}}>
-									<InputLabel id="custSugarLabel">Sugar</InputLabel>
-									<Select
-										labelId="custSugarLabel"
-										id="custSugar"
-										label="Sugar"
-										style={{backgroundColor: "white"}}
-									>
-										<MenuItem value={0}>0</MenuItem>
-										<MenuItem value={1}>1</MenuItem>
-										<MenuItem value={2}>2</MenuItem>
-									</Select>
-								</FormControl> */}
-							</div>
+						<Grid item sm={4} style={{width: '100%'}} className="pdpInfo">
+							<h1>{currentSelectedBase.name}</h1>
+							<form onSubmit={goToCheckout}>
+								<h2 id="drinkPrice">$<span id="drinkVal">{currentSelectedBase.price.md.toFixed(2)}</span></h2>
+								<div>
+									<span onClick={handleClickOpen('paper')} className="styledBtn">Special Instructions</span>
+									{/* <FormControl fullWidth sx={{mb: 2}}>
+										<InputLabel id="custSugarLabel">Sugar</InputLabel>
+										<Select
+											labelId="custSugarLabel"
+											id="custSugar"
+											label="Sugar"
+											style={{backgroundColor: "white"}}
+										>
+											<MenuItem value={0}>0</MenuItem>
+											<MenuItem value={1}>1</MenuItem>
+											<MenuItem value={2}>2</MenuItem>
+										</Select>
+									</FormControl> */}
+								</div>
 
-							<div>
-								{/* <label htmlFor="custSize">Size: </label>
-								<select name="custSize" id="custSize" onChange={custSize} >
-									<option value="1">Small</option>
-									<option value="2">Medium</option>
-									<option value="3">Large</option>
-								</select> */}
-								<FormControl fullWidth sx={{mb: 2}}>
-									<InputLabel id="custSizeLabel">Size</InputLabel>
-									<Select
-										labelId="custSizeLabel"
-										id="custSize"
-										// value={age}
-										label="Size"
-										style={{backgroundColor: "white"}}
-										onChange={calcPrice}
-									>
-										<MenuItem selected value={currentSelectedBase.price.md}>Medium (${currentSelectedBase.price.md.toFixed(2)})</MenuItem>
-										<MenuItem value={currentSelectedBase.price.lg}>Large (${currentSelectedBase.price.lg.toFixed(2)})</MenuItem>
-										<MenuItem value={currentSelectedBase.price.xl}>X-Large (${currentSelectedBase.price.xl.toFixed(2)})</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
+								<div>
+									{/* <label htmlFor="custSize">Size: </label>
+									<select name="custSize" id="custSize" onChange={custSize} >
+										<option value="1">Small</option>
+										<option value="2">Medium</option>
+										<option value="3">Large</option>
+									</select> */}
+									<FormControl fullWidth sx={{mb: 2}}>
+										<InputLabel id="custSizeLabel">Size</InputLabel>
+										<Select
+											labelId="custSizeLabel"
+											id="custSize"
+											// value={age}
+											label="Size"
+											style={{backgroundColor: "white"}}
+											onChange={calcPrice}
+										>
+											<MenuItem selected value={currentSelectedBase.price.md}>Medium (${currentSelectedBase.price.md.toFixed(2)})</MenuItem>
+											<MenuItem value={currentSelectedBase.price.lg}>Large (${currentSelectedBase.price.lg.toFixed(2)})</MenuItem>
+											<MenuItem value={currentSelectedBase.price.xl}>X-Large (${currentSelectedBase.price.xl.toFixed(2)})</MenuItem>
+										</Select>
+									</FormControl>
+								</div>
 
-							<div>
-								<FormControl fullWidth sx={{mb: 2}}>
-									<InputLabel id="proteinTypeLabel">Protein Type</InputLabel>
-									<Select
-										labelId="proteinTypeLabel"
-										id="proteinType"
-										label="Protein Type"
-										style={{backgroundColor: "white"}}
-										onChange={showProtein}
-									>
-										<MenuItem value={'None'}>None</MenuItem>
-										<MenuItem value={'Whey'}>Whey (+$1.00)</MenuItem>
-										<MenuItem value={'Soy'}>Soy (+$1.00)</MenuItem>
-										<MenuItem value={'Plant'}>Plant-Based (+$1.00)</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
+								<div>
+									<FormControl fullWidth sx={{mb: 2}}>
+										<InputLabel id="proteinTypeLabel">Protein Type</InputLabel>
+										<Select
+											labelId="proteinTypeLabel"
+											id="proteinType"
+											label="Protein Type"
+											style={{backgroundColor: "white"}}
+											onChange={showProtein}
+										>
+											<MenuItem value={'None'}>None</MenuItem>
+											<MenuItem value={'Whey'}>Whey (+$1.00)</MenuItem>
+											<MenuItem value={'Soy'}>Soy (+$1.00)</MenuItem>
+											<MenuItem value={'Plant'}>Plant-Based (+$1.00)</MenuItem>
+										</Select>
+									</FormControl>
+								</div>
 
-							{/* <div>
-								<FormControl fullWidth sx={{mb: 2}}>
-									<InputLabel id="proteinAmtLabel">Protein Amount</InputLabel>
-									<Select
-										labelId="proteinAmtLabel"
-										id="proteinAmt"
-										label="Protein Amount"
-										style={{backgroundColor: "white"}}
-									>
-										<MenuItem value={1}>1 scoop</MenuItem>
-										<MenuItem value={2}>2 scoops</MenuItem>
-									</Select>
-								</FormControl>
-							</div> */}
-							<button type="submit">Add to order</button>
-						</form>
-						{/* <Button onClick={handleClick}>Open simple snackbar</Button> */}
-						<Snackbar
-							open={open}
-							autoHideDuration={6000}
-							onClose={handleClose}
-							message="Order updated"
-							action={action}
-						/>
-					</Grid>
+								{/* <div>
+									<FormControl fullWidth sx={{mb: 2}}>
+										<InputLabel id="proteinAmtLabel">Protein Amount</InputLabel>
+										<Select
+											labelId="proteinAmtLabel"
+											id="proteinAmt"
+											label="Protein Amount"
+											style={{backgroundColor: "white"}}
+										>
+											<MenuItem value={1}>1 scoop</MenuItem>
+											<MenuItem value={2}>2 scoops</MenuItem>
+										</Select>
+									</FormControl>
+								</div> */}
+								<button type="submit">Add to order</button>
+							</form>
+							{/* <Button onClick={handleClick}>Open simple snackbar</Button> */}
+							<Snackbar
+								open={open}
+								autoHideDuration={6000}
+								onClose={handleClose}
+								message="Order updated"
+								action={action}
+							/>
+						</Grid>
+					{/* </div> */}
 				</Grid>
 			</Container>
 

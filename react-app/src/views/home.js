@@ -16,7 +16,7 @@ export const Home = () => {
 
 					<Grid item className="banner emailSignup" xs={12}>
 						<h2>Sign Up</h2>
-						<p>wergerger ger ge rg erg erg</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum cursus diam ut pulvinar. Fusce mauris ex, volutpat ut congue vitae, viverra sit amet arcu. Duis porta dolor vitae eros interdum, vel rhoncus purus eleifend. Mauris vel felis accumsan.</p>
 						<form>
 
 						</form>

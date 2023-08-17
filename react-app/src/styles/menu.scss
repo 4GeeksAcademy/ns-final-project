@@ -2,26 +2,28 @@
 
 .product {
 	color: $black;
-	background-color: rgba(255,255,255,.7);
+	background-color: #ececec;
 	padding: 20px;
 	margin: 0;
 	display: block;
 	box-shadow: none;
 	transition: all .2s ease-in;
 	position: relative;
-	cursor: pointer;
+	// cursor: pointer;
+	min-height: 315px;
+	@include border-radius;
 	img {
 		width: 50%;
-		transform: scale(1);
+		transform: rotate(0deg) scale(1);
 		transition: transform .2s ease-out;
 	}
 	&:hover {
 		text-decoration: none;
-		background-color: rgba(255,255,255,1);
+		background-color: rgba(255,255,255,1) !important;
 		box-shadow: 1px 6px 10px -3px rgba(0,0,0,0.1);
 		transition: all .2s ease-in;
 		img {
-			transform: scale(1.07);
+			transform: rotate(45deg) scale(1.07);
 			transition: transform .2s ease-in;
 		}
 	}
@@ -43,7 +45,7 @@
 }
 .styledBtn {
 	border: solid 1px #c4c4c4;
-	border-radius: 4px;
+	@include border-radius;
 	color: #464646;
 	padding: 6px 10px;
 	margin-bottom: 20px;
@@ -55,6 +57,12 @@
 }
 .productShotCont {
 	position: relative;
+	.productShot {
+		width: 100px;
+		@media (min-width: $sm) {
+			width: auto;
+		}
+	}
 	&.protein:after {
 		content: '';
 		position: absolute;
@@ -74,4 +82,14 @@
 .backTo {
 	display: flex;
 	align-items: center;
+	margin-bottom: 20px;
+}
+// .insidePattern {
+// 	background: url('../img/fruit-bg.jpg');
+// }
+#drinkPrice {
+	margin-top: 0;
+}
+.pdpInfo h1 {
+	margin: 0;
 }

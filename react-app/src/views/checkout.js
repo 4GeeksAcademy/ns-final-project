@@ -41,10 +41,12 @@ export const Checkout = () => {
 		const data = await res.json();
 
 		const mydata = data.data.orderId;
+		// const orderImg = data.data.img;
 
 		console.log(data.data);
 		// window.location.href = `mailto:nshwaery@hotmail.com?subject=${mydata}&body="Thanks for your purchase"`;
     history.push(`/confirmation/${mydata}`);
+		// /${orderImg}
 
 		sendEmail();
 	}
@@ -65,7 +67,7 @@ export const Checkout = () => {
 							<input type="email" name="user_email" />
 							<label>Message</label>
 							<textarea name="message" />
-							<button type="submit">Order</button>
+							<button type="submit">Place Order</button>
 						</form>
 
 						{/* <form ref={form} onSubmit={sendEmail}>

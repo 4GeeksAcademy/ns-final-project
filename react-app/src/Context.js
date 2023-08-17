@@ -8,7 +8,7 @@ export default function ContextProvider(props) {
     const [user, setUser] = useState({});
 		const [currentSelectedBase, setCurrentSelectedBase] = useState(null);
 
-		const [myOrder, setMyOrder] = useState({});
+		const [myOrder, setMyOrder] = useState([]);
 
     useEffect(() => {
 

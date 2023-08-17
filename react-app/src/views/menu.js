@@ -26,8 +26,13 @@ export const Menu = () => {
 		fetchBases();
 	}, [])
 
-	const { setCurrentSelectedBase } = useContext(menuContext);
+	const { setCurrentSelectedBase, setMyOrder } = useContext(menuContext);
 	const onSelectBase = (e) => {
+		const base = getBase(e);
+		setCurrentSelectedBase(base);
+	}
+
+	function getBase(e) {
 		let baseName = e.target.classList[0];
 		if (!baseName) {
 			baseName = e.target.parentElement.classList[0];
@@ -36,21 +41,24 @@ export const Menu = () => {
 			console.log(base.id, baseName, e.target, base.GF, base.price.md);
 			return base.id === baseName;
 		});
-		setCurrentSelectedBase(base);
+		return base;
+	}
 
-		// console.log(e.target);
+	const addToCart = (e) => {
+		const base = getBase(e);
+		setMyOrder((prevState) => {
+			return [...prevState, { ...base, defaultBase: true }]
+		});
 	}
 
 	const fetchBases = async () => {
 
 		try {
-
 			const res = await fetch('http://127.0.0.1:5001/fourgeeks-final/us-central1/getBases');
 			const data = await res.json();
 			document.querySelector('.loader').classList.add('hidden');
 
 			setBases(data.data);
-
 			console.log(data.data);
 		}
 		catch (e) {
@@ -61,46 +69,30 @@ export const Menu = () => {
 	return (
 		<main>
 			<Container maxWidth="lg">
+				<h1 style={{ marginBottom: '0', textAlign: 'center'}}>Select your juice</h1>
 				<img src={loader} alt="loader" className="loader" />
 				<Grid container spacing={2}>
 					{bases.map((base) => 
-					// function fixJuice(str) {
-					// 	return str.split('').join(' ');
-					// }
-					// const str1 = base.juices;	
-					// console.log(fixJuice(str1));
-						<Grid item xs={6} sm={4} md={3}>
-							<Link to="/pdp" className="product tac">
-								<div className={base.id} onClick={onSelectBase}>
+						<Grid item xs={12} sm={6} md={3}>
+							<div className="product tac" style={{background: base.hex}}>
+								<div>
 									<div className={(base.GF === false) ? "gf-hidden" : "gf"}>
-									<Tooltip title="Gluten-Free">
-										<IconButton>
-											<span className="gf-lg">GF</span>
-										</IconButton>
-									</Tooltip>
+										<Tooltip title="Gluten-Free">
+											<IconButton>
+												<span className="gf-lg">GF</span>
+											</IconButton>
+										</Tooltip>
 									</div>
 									<img src={base.img} alt="Juice" />
 									<h2>{base.name}</h2>
-									<p>{base.calories} Calories</p>
-									<p>${base.price.md.toFixed(2)}</p>
+									<p><strong>${base.price.md.toFixed(2)}</strong> &nbsp;| &nbsp;{base.calories} Calories</p>
 									<p className="capIt">{base.juices.join(", ")}</p>
+									<div className="flex" style={{justifyContent: 'space-between'}}>
+										<Link to="/pdp" className={base.id} onClick={onSelectBase}>Customize</Link>
+										<button className={base.id + ' btn-small'} onClick={addToCart}>+ Add</button>
+									</div>
 								</div>
-								{/* <div className={base.name} onClick={onSelectBase}>
-									<Card sx={{ maxWidth: 345 }}>
-										<CardActionArea>
-											<CardMedia component="img" image={watermelon} alt="Juice" />
-											<CardContent>
-												<Typography gutterBottom variant="h5" component="div">
-													{base.name}
-												</Typography>
-												<Typography variant="body2" color="text.secondary">
-													380 Calories
-												</Typography>
-											</CardContent>
-										</CardActionArea>
-									</Card>
-								</div> */}
-							</Link>
+							</div>
 						</Grid>
 					)}
 				</Grid>

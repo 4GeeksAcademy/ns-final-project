@@ -38,3 +38,73 @@ nav {
 		}
 	}
 }
+
+.cartDrawer {
+	padding: 20px;
+	text-align: center;
+	img {
+		width: 100px;
+	}
+	.drinkDrawer {
+		margin-bottom: 40px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		img {
+			margin-bottom: 20px;
+		}
+	}
+	.lineItem {
+		display: flex;
+		justify-content: space-between;
+    width: 250px;
+    margin: 5px 0;
+		span {
+			display: inline-block;
+			width: 83px;
+			text-align: right;
+			&.c_first {
+				text-align: left;
+				cursor: pointer;
+			}
+			&.c_auto{
+				width: auto;
+			}
+		}
+	}
+	.btn:hover {
+		text-decoration: none;
+	}
+	hr {
+		margin: 20px 0;
+	}
+}
+.cartCont {
+	background: $green-lt;
+	border-radius: 76px;
+	padding: 4px 10px;
+	margin-left: -3px;
+	cursor: pointer;
+	.cart {
+		color: $green;
+		margin-top: 5px;
+	}
+	.cartNo {
+		display: inline-block;
+		vertical-align: top;
+		color: $green;
+		font-weight: 500;
+		margin: 9px 0 0 3px;
+		font-size: 14px;
+	}
+}
+.emptyCart {
+	width: 200px;
+}
+.navNames {
+	display: flex;
+	align-items: center;
+	.hideSmall {
+		margin-left: 5px;
+	}
+}

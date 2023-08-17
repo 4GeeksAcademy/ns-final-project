@@ -1,6 +1,7 @@
 @import "./vars.scss";
 
 .emailSignup {
-	background: url('../img/email-banner.png') right center no-repeat $green-lt;
-	background-size: contain;
+	background: url('../img/email-banner.png') right 40px bottom no-repeat $green-lt;
+	background-size: 30%;
+	padding-right: 40%;
 }

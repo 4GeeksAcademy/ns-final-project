@@ -57,13 +57,20 @@ a, .link {
 	width: 100%;
 }
 .tac {
-	text-align: center;
+	text-align: center !important;
 }
 .banner {
-	border-radius: 8px;
+	@include border-radius;
 	background: $white;
+	padding: 20px;
 }
-button {
+.hideSmall {
+	display: none;
+	@media (min-width: $md) {
+		display: inline-block;
+	}
+}
+button, .btn {
 	width: 100%;
 	background: $green;
 	color: $white;
@@ -74,6 +81,11 @@ button {
 	cursor: pointer;
 	&:hover {
 		background-color: #25692c;
+	}
+	&.btn-small {
+		width: auto;
+    padding: 6px 12px;
+		@include border-radius;
 	}
 }
 .loader {
@@ -98,4 +110,7 @@ button {
 }
 .MuiGrid-root {
 	margin-top: 0 !important;
+}
+.MuiButton-text {
+	color: $green !important;
 }
