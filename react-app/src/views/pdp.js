@@ -170,6 +170,10 @@ export const Pdp = (props) => {
 		}
 	}
 
+	const addToCart = (e) => {
+		console.log('add another');
+	}
+
 	if (!currentSelectedBase) {
 		return <Redirect
 		to={{
@@ -181,7 +185,7 @@ export const Pdp = (props) => {
 		<main>
 			<Container maxWidth="lg">
 				<a href="/menu" className="backTo"><ArrowBackIosIcon className="back" /> Back to menu</a>
-				<Grid container spacing={2} style={{background: currentSelectedBase.hex, borderRadius: '6px'}}>
+				<Grid container spacing={2} style={{background: currentSelectedBase.hex, borderRadius: '6px', width: 'auto', marginLeft: '0', paddingRight: '16px', paddingBottom: '16px'}}>
 					{/* <div className="insidePattern"> */}
 						<Grid item sm={6} className="tac" style={{width: '100%'}}>
 							{/* <img src={'./img/'+ currentSelectedBase.name + '-pdp.png'} alt="Juice" className="productShot" /> */}
@@ -265,7 +269,7 @@ export const Pdp = (props) => {
 										</Select>
 									</FormControl>
 								</div> */}
-								<button type="submit">Add to order</button>
+								<button type="submit" onClick={addToCart}>Add to order</button>
 							</form>
 							{/* <Button onClick={handleClick}>Open simple snackbar</Button> */}
 							<Snackbar

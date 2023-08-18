@@ -47,29 +47,13 @@ nav {
 	}
 	.drinkDrawer {
 		margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
 		&:last-child {
 			margin-bottom: 0;
 		}
 		img {
 			margin-bottom: 20px;
-		}
-	}
-	.lineItem {
-		display: flex;
-		justify-content: space-between;
-    width: 250px;
-    margin: 5px 0;
-		span {
-			display: inline-block;
-			width: 83px;
-			text-align: right;
-			&.c_first {
-				text-align: left;
-				cursor: pointer;
-			}
-			&.c_auto{
-				width: auto;
-			}
 		}
 	}
 	.btn:hover {
@@ -107,4 +91,25 @@ nav {
 	.hideSmall {
 		margin-left: 5px;
 	}
+}
+.lineItem {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin: 5px 0;
+	span {
+		display: inline-block;
+		text-align: right;
+		&.c_first {
+			text-align: left;
+			cursor: pointer;
+		}
+		&.c_auto{
+			width: auto;
+		}
+	}
+}
+.cartDrinks {
+	height: calc(100vh - 380px);
+	overflow-y: scroll;
 }

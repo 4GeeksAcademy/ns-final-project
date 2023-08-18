@@ -15,6 +15,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -78,18 +79,19 @@ export const Nav = () => {
 	const removeItem = (e) => {
 		e.target.parentElement.parentElement.parentElement.remove();
 		cartNo = cartNo -1;
+		
 	}
 
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
 			className="cartDrawer"
     >
 			<h2>My Order:</h2>
-      <List className="cartDrinks">
+      <List>
 				{myOrder.map((order) => {
 					return (
 						<>
@@ -130,13 +132,13 @@ export const Nav = () => {
 			{myOrder.length > 0 ? 
 				<>
 					<ul>
-					<li className="fw">
+					<li>
 						<p className="lineItem">
 							<span>Subtotal:</span>
 							<span>${calcTotal.subtotal.toFixed(2)}</span>
 						</p>
 					</li>
-					<li className="fw">
+					<li>
 						<p className="lineItem">
 							<span>Tax: </span>
 							<span className="tax">${calcTotal.tax.toFixed(2)}</span>

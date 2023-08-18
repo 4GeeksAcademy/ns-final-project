@@ -114,3 +114,6 @@ button, .btn {
 .MuiButton-text {
 	color: $green !important;
 }
+.centerIt {
+	@include centerIt;
+}

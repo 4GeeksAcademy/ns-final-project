@@ -1,7 +1,28 @@
 @import "./vars.scss";
 
 .emailSignup {
-	background: url('../img/email-banner.png') right 40px bottom no-repeat $green-lt;
-	background-size: 30%;
-	padding-right: 40%;
+	background: $green-lt;
+	margin-top: 40px !important;
+	.dude {
+		background: url('../img/email-banner.png') right bottom no-repeat;
+		background-size: contain;
+		height: 200px;
+		width: 100%;
+    margin-bottom: -20px;
+		@media (max-width: $sm) {
+			display: none;
+		}
+	}
+}
+.menuPromo {
+	background: url('../img/juice-menu-promo.jpg') center center no-repeat;
+	background-size: 70%;
+	height: 240px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	width: 100%;
+	@media (max-width: $sm) {
+		height: 170px;
+	}
 }

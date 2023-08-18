@@ -1,25 +1,36 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import { Container, TextField, Grid } from "@mui/material";
 import "../styles/home.scss";
 
 export const Home = () => {
 	return (
 		<main>
-			<Container maxWidth="lg">
+			<Container maxWidth="lg" className="centerIt">
 				<Grid container>
-					<Grid item>
-						<h1>Home Page</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum cursus diam ut pulvinar. Fusce mauris ex, volutpat ut congue vitae, viverra sit amet arcu. Duis porta dolor vitae eros interdum, vel rhoncus purus eleifend. Mauris vel felis accumsan, tempus tortor id, ultrices lectus. Proin quis turpis pulvinar, egestas urna ut, pulvinar nibh. Nulla facilisi. Vestibulum sodales urna sit amet dolor placerat, consequat consectetur mi condimentum. Donec at arcu et dui scelerisque egestas. Ut arcu est, ultricies in lorem nec, gravida sodales mauris. Sed viverra mauris vitae dignissim rutrum. Vestibulum eu varius metus. Integer libero sapien, maximus in porta nec, tincidunt nec massa. Ut justo ligula, dictum ut tortor a, convallis varius augue.</p>
+					<Grid item sm={6}>
+						<h2>Want to know more?</h2>
+						<p>Learn about Apetitoso. Founded here in Coral Gables, FL, Apetitoso has plans to expand nationwide. See why we're different and our mission statement. </p>
+						<a href="/about">See our story</a>
+					</Grid>
+
+					<Grid item className="banner menuPromo" sm={6}>
+						<a href="/menu">
+							<button className="btn-small" style={{padding: '11px 20px'}}>Pick your drink!</button>
+						</a>
 					</Grid>
 
 					<Grid item className="banner emailSignup" xs={12}>
-						<h2>Sign Up</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum cursus diam ut pulvinar. Fusce mauris ex, volutpat ut congue vitae, viverra sit amet arcu. Duis porta dolor vitae eros interdum, vel rhoncus purus eleifend. Mauris vel felis accumsan.</p>
-						<form>
-
-						</form>
+						<Grid container>
+							<Grid item sm={6}>
+								<h2>Want exclusive offers and discounts?</h2>
+								<p> Sign up now to ge the latest Apetitoso information!</p>
+								<form>
+									<TextField size="small" label="Email" placeholder="xxxx@xxxxxx.com" variant="outlined" type="email"/>
+									<button type="submit" className="btn-small" style={{padding: '11px 20px', marginLeft: '10px'}}>Submit</button>
+								</form>
+							</Grid>
+							<Grid item sm={6} className="dude"></Grid>
+						</Grid>
 					</Grid>
 				</Grid>
 			</Container>
