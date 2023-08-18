@@ -110,6 +110,6 @@ nav {
 	}
 }
 .cartDrinks {
-	height: calc(100vh - 380px);
+	max-height: calc(100vh - 380px);
 	overflow-y: scroll;
 }
