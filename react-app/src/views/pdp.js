@@ -185,7 +185,7 @@ export const Pdp = (props) => {
 		<main>
 			<Container maxWidth="lg">
 				<a href="/menu" className="backTo"><ArrowBackIosIcon className="back" /> Back to menu</a>
-				<Grid container spacing={2} style={{background: currentSelectedBase.hex, borderRadius: '6px', width: 'auto', marginLeft: '0', paddingRight: '16px', paddingBottom: '16px'}}>
+				<Grid container spacing={2} style={{border: `solid 2px rgba(${currentSelectedBase.hex})`, background: `rgba(${currentSelectedBase.hex}, .3)`, borderRadius: '6px', width: 'auto', marginLeft: '0', paddingRight: '16px', paddingBottom: '16px'}}>
 					{/* <div className="insidePattern"> */}
 						<Grid item sm={6} className="tac" style={{width: '100%'}}>
 							{/* <img src={'./img/'+ currentSelectedBase.name + '-pdp.png'} alt="Juice" className="productShot" /> */}

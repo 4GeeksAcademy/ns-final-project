@@ -7,14 +7,8 @@ import "../styles/menu.scss";
 import loader from "../img/animated-fruit.gif";
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-
-
-// Card Component
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+// import gf from '../img/gf.svg';
+import emptyCup from '../img/empty-drink.png';
 
 // import { bases } from '../Context';
 
@@ -74,23 +68,22 @@ export const Menu = () => {
 				<Grid container spacing={2}>
 					{bases.map((base) => 
 						<Grid item xs={12} sm={6} md={3}>
-							<div className="product tac" style={{background: base.hex}}>
-								<div>
-									<div className={(base.GF === false) ? "gf-hidden" : "gf"}>
-										<Tooltip title="Gluten-Free">
-											<IconButton>
-												<span className="gf-lg">GF</span>
-											</IconButton>
-										</Tooltip>
-									</div>
-									<img src={base.img} alt="Juice" />
-									<h2>{base.name}</h2>
-									<p><strong>${base.price.md.toFixed(2)}</strong> &nbsp;| &nbsp;{base.calories} Calories</p>
-									<p className="capIt">{base.juices.join(", ")}</p>
-									<div className="flex" style={{justifyContent: 'space-between'}}>
-										<Link to="/pdp" className={base.id} onClick={onSelectBase}>Customize</Link>
-										<button className={base.id + ' btn-small'} onClick={addToCart}>+ Add</button>
-									</div>
+							<div className="product tac" style={{border: `solid 2px rgba(${base.hex})`, background: `rgba(${base.hex}, .3)`}}>
+								<div className={(base.GF === false) ? "gf-hidden" : "gf"}>
+									<Tooltip title="Gluten-Free">
+										<IconButton>
+											<span className="gf-lg">GF</span>
+											{/* <img src={gf} alt="Gluten Free" /> */}
+										</IconButton>
+									</Tooltip>
+								</div>
+								{ (base.img) ? <img className="spin" src={base.img} alt="Juice" /> : <img src={emptyCup} alt="Juice" />}
+								<h2>{base.name}</h2>
+								<p><strong>${base.price.md.toFixed(2)}</strong> &nbsp;| &nbsp;{base.calories} Calories</p>
+								<p className="capIt">{(base.juices) ? base.juices.join(", ") : ''}</p>
+								<div className="flex" style={{justifyContent: 'space-between'}}>
+									<Link to="/pdp" className={base.id} onClick={onSelectBase}>Customize</Link>
+									<button className={base.id + ' btn-small'} onClick={addToCart}>+ Add</button>
 								</div>
 							</div>
 						</Grid>
