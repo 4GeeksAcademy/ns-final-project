@@ -62,6 +62,38 @@ exports.getBases = onRequest((req, res) => {
   })
 });
 
+exports.getOthers = onRequest((req, res) => {
+  cors(req, res, async () => {
+
+		const response = {
+			status: 200,
+			data: {},
+			msg: 'Successfully retrieved others'
+		};
+
+		try {
+
+			const snapshot = await firestore.collection('Other').get();
+
+			const others = [];
+
+			snapshot.forEach((snap) => {
+				
+				const data = snap.data();
+				others.push(data);
+			});
+
+			response.data = others;
+		}
+		catch (e) {
+			response.status = 500;
+			response.msg = e.message;
+		}
+
+    res.status(response.status).send(response);
+  })
+});
+
 exports.getConstants = onRequest((req, res) => {
   cors(req, res, async () => {
 

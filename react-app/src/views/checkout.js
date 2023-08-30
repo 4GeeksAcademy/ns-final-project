@@ -5,7 +5,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Link } from "react-router-dom";
 
 import emailjs from '@emailjs/browser';
-import { Box, Container, Divider, TextField, Button, Card, CardContent, Grid } from "@mui/material";
+import { Container, Divider, TextField, Grid } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 
 export const Checkout = () => {	
@@ -17,8 +17,6 @@ export const Checkout = () => {
 	const form = useRef();
 
 	const sendEmail = (e) => {
-		// e.preventDefault(); // prevents the page from reloading when you hit “Send”
-
 		emailjs.sendForm('service_x7ek4wm', 'template_ydzdvuv', form.current, 'nnqZ1AIxfQugh97MX', {
 			from_name: "Apetitoso",
 			})
@@ -45,12 +43,13 @@ export const Checkout = () => {
 		const mydata = data.data.orderId;
 		// const orderImg = data.data.img;
 
-		console.log(data.data);
+		console.log(myOrder);
+
 		// window.location.href = `mailto:nshwaery@hotmail.com?subject=${mydata}&body="Thanks for your purchase"`;
     history.push(`/confirmation/${mydata}`);
 		// /${orderImg}
 
-		sendEmail();
+		// sendEmail();
 	}
 
 	// const getDrinkQty = (orderName) => {
@@ -85,12 +84,18 @@ export const Checkout = () => {
 	);
 	
 	console.log(myOrder);
+
+	let date = new Date();
+	let current_date = (date.getMonth()+1)+"-"+ date.getDate()+'-'+date.getFullYear();
+	let current_time = date.getHours()+":"+date.getMinutes();
+	let date_time = current_date+" at "+current_time;
+	console.log(date_time);
 	
 
 	return (
 		<main>
 			<Container maxWidth="lg">
-				<form ref={form} onSubmit={onSubmitHandler}>
+				<form id="orderForm" ref={form} onSubmit={onSubmitHandler}>
 					<Grid container columnSpacing={10} style={{alignItems: 'flex-start'}}>
 						<Grid item md={8}>
 						{/* <Link to="/pdp"><ArrowBackIosIcon className="back" /> Back</Link> */}
@@ -111,8 +116,11 @@ export const Checkout = () => {
 							<TextField margin="normal" label="City" variant="outlined" sx={{mr: 3}} />
 							<TextField margin="normal" label="State" variant="outlined" sx={{mr: 3}} />
 							<TextField margin="normal" type="number" label="Zipcode" variant="outlined" />
+							<TextField margin="normal" name="orderNm" variant="outlined" type="hidden" value={myOrder[0].name} />
+							<TextField margin="normal" name="total" variant="outlined" type="hidden" value={calcTotal.total.toFixed(2)} />
+							<TextField margin="normal" name="orderTime" variant="outlined" type="hidden" value={date_time} />
 							<TextField
-								label="Credit Card Number" variant="outlined" fullWidth type="number" margin="normal" inputProps={{ maxLength: 16 }}
+								label="Credit Card Number" id="cc_no" variant="outlined" fullWidth type="number" margin="normal" inputProps={{ maxLength: 16 }}
 							/>
 							<TextField
 								label="CVV" placeholder="XXX" variant="outlined" type="number" margin="normal" 

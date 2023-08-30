@@ -86,8 +86,8 @@ export const Account = () => {
 									aria-label="My Account"
 									sx={{ borderRight: 1, borderColor: 'divider' }}
 								>
-									<Tab label="Account" {...a11yProps(0)} />
-									<Tab label="Payment" {...a11yProps(1)} />
+									<Tab label="Payment" {...a11yProps(0)} />
+									<Tab label="Account" {...a11yProps(1)} />
 									<Tab label="Rewards" {...a11yProps(2)} />
 									<Tab label="Orders" {...a11yProps(3)} />
 									<Tab label="Dietary" {...a11yProps(4)} />
@@ -96,7 +96,14 @@ export const Account = () => {
 							</div>
 							<div className="accountPanel">
 								<TabPanel value={value} index={0}>
-									<h1>My account</h1>
+									<h2>Payment Info</h2>
+									<p className="cc"><strong>Visa</strong> ending in •••• 1234</p>
+									<Button variant="text">Edit</Button> <br />
+									<p className="cc"><strong>American Express </strong> ending in •••• 8899</p>
+									<Button variant="text">Edit</Button>
+								</TabPanel>
+								<TabPanel value={value} index={1}>
+									<h2>My account</h2>
 									{/* <p><strong>Name:</strong></p>  */}
 									{/* <input type="text" value={ user.name } /> */}
 									<TextField id="standard-basic" fullWidth label="Name" value={ user.name } sx={{mb: 2}} /><br/>
@@ -105,13 +112,6 @@ export const Account = () => {
 									<button>Save</button>
 									<Button variant="text" sx={{mt: 2}}>Change password</Button>
 									{/* <button onClick={logItOut}>Sign out</button> */}
-								</TabPanel>
-								<TabPanel value={value} index={1}>
-									<h2>Payment Info</h2>
-									<p className="cc"><strong>Visa</strong> ending in •••• 1234</p>
-									<Button variant="text">Edit</Button> <br />
-									<p className="cc"><strong>American Express </strong> ending in •••• 8899</p>
-									<Button variant="text">Edit</Button>
 								</TabPanel>
 								<TabPanel value={value} index={2}>
 									<h2>Rewards</h2>

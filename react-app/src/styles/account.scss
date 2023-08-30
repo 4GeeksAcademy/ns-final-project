@@ -15,7 +15,9 @@
 }
 .accountTabs {
 	.MuiTabs-root {
-		border-right: none;
+		@media (max-width: $md) {
+			border-bottom: solid 1px #0000001f;
+		}
 	}
 	.MuiTabs-flexContainer {
 		@media (min-width: $sm) and (max-width: $md) {

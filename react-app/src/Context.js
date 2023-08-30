@@ -7,6 +7,7 @@ export default function ContextProvider(props) {
 
     const [user, setUser] = useState({});
 		const [currentSelectedBase, setCurrentSelectedBase] = useState(null);
+		const [currentSelectedOther, setCurrentSelectedOther] = useState(null);
 
 		const [myOrder, setMyOrder] = useState([]);
 
@@ -36,7 +37,7 @@ export default function ContextProvider(props) {
     }, []);
 
     return (
-			<menuContext.Provider value={{ user, setUser, currentSelectedBase, setCurrentSelectedBase, myOrder, setMyOrder }}>
+			<menuContext.Provider value={{ user, setUser, currentSelectedBase, setCurrentSelectedBase, currentSelectedOther, setCurrentSelectedOther, myOrder, setMyOrder }}>
 				{props.children}
 			</menuContext.Provider>
     )

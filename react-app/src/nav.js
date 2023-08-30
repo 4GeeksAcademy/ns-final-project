@@ -30,7 +30,7 @@ export const Nav = () => {
 	// local storage
 	localStorage.clear();
 	let realNo = localStorage.getItem('amt');
-	console.log(realNo);
+	// console.log(realNo);
 
 	// drawer
 	const [state, setState] = React.useState({

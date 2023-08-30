@@ -21,6 +21,7 @@ nav {
 			margin: 0;
 			display: flex;
 			align-items: center;
+			font-size: 24px;
 			span {
 				display: none;
 				@media (min-width: $md) {

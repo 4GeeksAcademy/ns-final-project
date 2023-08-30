@@ -225,10 +225,10 @@ export const Pdp = (props) => {
 										<Select
 											labelId="custSizeLabel"
 											id="custSize"
-											// value={age}
 											label="Size"
 											style={{backgroundColor: "white"}}
 											onChange={calcPrice}
+											value={currentSelectedBase.price.md}
 										>
 											<MenuItem selected value={currentSelectedBase.price.md}>Medium (${currentSelectedBase.price.md.toFixed(2)})</MenuItem>
 											<MenuItem value={currentSelectedBase.price.lg}>Large (${currentSelectedBase.price.lg.toFixed(2)})</MenuItem>
@@ -246,6 +246,7 @@ export const Pdp = (props) => {
 											label="Protein Type"
 											style={{backgroundColor: "white"}}
 											onChange={showProtein}
+											value={'None'}
 										>
 											<MenuItem value={'None'}>None</MenuItem>
 											<MenuItem value={'Whey'}>Whey (+$1.00)</MenuItem>
